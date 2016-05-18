@@ -12,7 +12,7 @@ CREATE TABLE capture.Business_Admin(
 	User_Id CHAR(30) NOT NULL,
 	Business_Id MEDIUMINT,
 	User_Name CHAR(50) NOT NULL,
-	Password CHAR(50) NOT NULL,
+	Password CHAR(255) NOT NULL,
 	Email CHAR(50) NOT NULL,
 	Role CHAR(20) NOT NULL,
 	Mobile_Number CHAR(20) NULL,
