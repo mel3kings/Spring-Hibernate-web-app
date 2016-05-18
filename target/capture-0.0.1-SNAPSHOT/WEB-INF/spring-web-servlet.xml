@@ -41,7 +41,7 @@
         <property name="username" value="${jdbc.user}" />
         <property name="password" value="${jdbc.password}" />
         <property name="initialSize" value="10" />
-        <property name="maxActive" value="5" />
+        <property name="maxActive" value="10" />
         <property name="maxWait" value="5000" />
     </bean>
 

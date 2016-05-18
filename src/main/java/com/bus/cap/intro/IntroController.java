@@ -18,12 +18,16 @@ import com.bus.cap.persistence.QueryDao;
 public class IntroController {
 	@Autowired
 	QueryDao dao;
-
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String printWelcome(ModelMap model) {
 		model.addAttribute("message", "Spring 3 MVC Hello World");
 		return "index";
+	}
+	
+	@RequestMapping(value="/template1",method=RequestMethod.GET)
+	public String html5Template(ModelMap model){
+		return "template1";
 	}
 	
 	@RequestMapping(value = "/test/{name}", method =RequestMethod.GET)
