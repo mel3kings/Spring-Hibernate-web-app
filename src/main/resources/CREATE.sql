@@ -74,6 +74,7 @@ CREATE TABLE capture.Event(
 ); 
 
 CREATE TABLE capture.Event_RSVP(
+	Event_RSVP_Id MEDIUMINT AUTO_INCREMENT,
 	Event_Id MEDIUMINT,
 	RSVP CHAR(10),
 	Guest_Name CHAR(30) NOT NULL,
@@ -81,6 +82,7 @@ CREATE TABLE capture.Event_RSVP(
 	Guest_Email_Address CHAR(50) NOT NULL,
 	Guest_Mobile_Number CHAR(20), 
 	No_Of_Guest INT,
+	PRIMARY KEY(Event_RSVP_Id),
     FOREIGN KEY (Event_Id) REFERENCES Event(Event_Id)
 );
 
