@@ -11,13 +11,13 @@
         http://www.springframework.org/schema/context 
         http://www.springframework.org/schema/context/spring-context-3.2.xsd
         http://www.springframework.org/schema/tx 
-       http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
+       	http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
 
 	<context:component-scan
-		base-package="com.bus.cap.intro,com.bus.cap.persistence, com.bus.cap.entities" />
+		base-package="com.bus.cap.intro,com.bus.cap.persistence, com.bus.cap.entities, com.bus.cap.controller,
+		com.bus.cap.util" />
 
-	<bean
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">
 			<value>/WEB-INF/views/jsp/</value>
 		</property>
@@ -25,33 +25,35 @@
 			<value>.jsp</value>
 		</property>
 	</bean>
-	
-	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="locations">
-            <list>
-                <value>classpath:database.properties</value>
-            </list>
-        </property>
-    </bean>
-    
-    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
-        destroy-method="close">
-        <property name="driverClassName" value="${jdbc.driver}" />
-        <property name="url" value="${jdbc.url}" />
-        <property name="username" value="${jdbc.user}" />
-        <property name="password" value="${jdbc.password}" />
-        <property name="initialSize" value="10" />
-        <property name="maxActive" value="10" />
-        <property name="maxWait" value="5000" />
-    </bean>
 
-	<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="${jdbc.driver}" />
-        <property name="url" value="${jdbc.url}" />
-        <property name="username" value="${jdbc.user}" />
-        <property name="password" value="${jdbc.password}" />
-    </bean>-->
-    
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:database.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="${jdbc.driver}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.user}" />
+		<property name="password" value="${jdbc.password}" />
+		<property name="initialSize" value="10" />
+		<property name="maxActive" value="10" />
+		<property name="maxWait" value="5000" />
+	</bean>
+
+	<!-- No connection pooling -->
+	<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
+		<property name="driverClassName" value="${jdbc.driver}" /> <property name="url" 
+		value="${jdbc.url}" /> <property name="username" value="${jdbc.user}" /> 
+		<property name="password" value="${jdbc.password}" /> </bean> -->
+		
+
+	
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
@@ -76,10 +78,9 @@
 	</bean>
 	<tx:annotation-driven transaction-manager="transactionManager" />
 	<bean id="HibernateFactoryDAO" class="com.bus.cap.persistence.HibernateFactory">
-     	<property name="sessionFactory" ref="sessionFactory"/>
+		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
 	<mvc:resources mapping="/resources/**" location="/WEB-INF/resources/" />
 	<mvc:annotation-driven />
-
 </beans>

@@ -19,7 +19,7 @@ public class IntroController {
 	@Autowired
 	QueryDao dao;
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = {"/","/index"}, method = RequestMethod.GET)
 	public String printWelcome(ModelMap model) {
 		model.addAttribute("message", "Spring 3 MVC Hello World");
 		return "index";
