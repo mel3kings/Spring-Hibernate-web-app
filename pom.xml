@@ -191,7 +191,7 @@
 				<version>2.6</version>
 				<configuration>
 					<warName>capture</warName>
-					<outputDirectory>C:\Tools\apache-tomcat-8.0.33\webapps</outputDirectory>
+					<outputDirectory>/Users/melchortatlonghari/Documents/java/apache-tomcat-8.0.35/webapps</outputDirectory>
 				</configuration>
 			</plugin>
 		</plugins>
