@@ -51,11 +51,8 @@ public class QueryDao {
 	
 	@Transactional(propagation=Propagation.REQUIRES_NEW)
 	public Object get(Long id, Class<?> cls) {
-		if(EntityFinder.isValidEntity(o)) {
-			Session session = factory.createSession();
-			System.out.println(cls.getName() + " id: " + id);
-			return session.get(cls, id);
-		}
-		return null;
+		Session session = factory.createSession();
+		System.out.println(cls.getName() + " id: " + id);
+		return session.get(cls, id);
 	}
 }
