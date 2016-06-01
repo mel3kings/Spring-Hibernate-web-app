@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.bus.cap.entities.Business;
+import com.bus.cap.util.EntityFinder;
 
 @Repository
 public class QueryDao {
@@ -24,6 +25,7 @@ public class QueryDao {
 		session.save(o);
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Transactional(propagation=Propagation.REQUIRES_NEW)
 	public List<Object> query (String identifier, String column,Object objectType) throws SQLException {
 		Session session = factory.createSession();
@@ -38,5 +40,19 @@ public class QueryDao {
 	public void delete(Object o) throws SQLException {
 		Session session = factory.createSession();
 		session.delete(o);
+	}
+	
+	@Transactional(propagation=Propagation.REQUIRES_NEW)
+	public void update(Object o) throws SQLException {
+		Session session = factory.createSession();
+		if(EntityFinder.isValidEntity(o))
+			session.saveOrUpdate(o);
+	}
+	
+	@Transactional(propagation=Propagation.REQUIRES_NEW)
+	public Object get(Long id, Class<?> cls) {
+		Session session = factory.createSession();
+		System.out.println(cls.getName() + " id: " + id);
+		return session.get(cls, id);
 	}
 }
