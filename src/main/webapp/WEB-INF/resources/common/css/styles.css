@@ -139,7 +139,7 @@ button {
   outline: none;
 }
 
-button.submitbtn {
+button.submitbtn .updatebtn{
   background-image: -moz-linear-gradient(#97c16b, #8ab959);
   background-image: -webkit-linear-gradient(#97c16b, #8ab959);
   background-image: linear-gradient(#97c16b, #8ab959);
@@ -147,12 +147,37 @@ button.submitbtn {
   cursor: pointer;
   color: #fff;
 }
-button.submitbtn:hover {
+button.submitbtn:hover .updatebtn:hover{
   background-image: -moz-linear-gradient(#8ab959, #7eaf4a);
   background-image: -webkit-linear-gradient(#8ab959, #7eaf4a);
   background-image: linear-gradient(#8ab959, #7eaf4a);
 }
-button.submitbtn:active {
+button.submitbtn:active .updatebtn:active{
+  height: 34px;
+  border-bottom: 0;
+  margin: 1px 0 0 0;
+  background-image: -moz-linear-gradient(#7eaf4a, #8ab959);
+  background-image: -webkit-linear-gradient(#7eaf4a, #8ab959);
+  background-image: linear-gradient(#7eaf4a, #8ab959);
+  -moz-box-shadow: inset 0 1px 3px 1px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: inset 0 1px 3px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 1px 3px 1px rgba(0, 0, 0, 0.3);
+}
+
+button.updatebtn{
+  background-image: -moz-linear-gradient(#97c16b, #8ab959);
+  background-image: -webkit-linear-gradient(#97c16b, #8ab959);
+  background-image: linear-gradient(#97c16b, #8ab959);
+  border-bottom: 1px solid #648c3a;
+  cursor: pointer;
+  color: #fff;
+}
+button.updatebtn:hover{
+  background-image: -moz-linear-gradient(#8ab959, #7eaf4a);
+  background-image: -webkit-linear-gradient(#8ab959, #7eaf4a);
+  background-image: linear-gradient(#8ab959, #7eaf4a);
+}
+button.updatebtn:active{
   height: 34px;
   border-bottom: 0;
   margin: 1px 0 0 0;

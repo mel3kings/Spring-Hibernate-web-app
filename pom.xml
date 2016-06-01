@@ -157,6 +157,13 @@
 			<version>7.0</version>
 			<scope>provided</scope>
 		</dependency>
+	
+		<!-- reflections dependency -->
+		<dependency>
+    		<groupId>org.reflections</groupId>
+    		<artifactId>reflections</artifactId>
+    		<version>0.9.10</version>
+		</dependency>
 
 
 	</dependencies>
@@ -191,7 +198,8 @@
 				<version>2.6</version>
 				<configuration>
 					<warName>capture</warName>
-					<outputDirectory>/Users/melchortatlonghari/Documents/java/apache-tomcat-8.0.35/webapps</outputDirectory>
+					<outputDirectory>C:\apache-tomcat-8.0.32\webapps</outputDirectory>
+					<!-- <outputDirectory>/Users/melchortatlonghari/Documents/java/apache-tomcat-8.0.35/webapps</outputDirectory> -->
 				</configuration>
 			</plugin>
 		</plugins>
