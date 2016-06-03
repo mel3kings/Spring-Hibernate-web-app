@@ -72,5 +72,14 @@ public class Media {
 	public void setAlbum(Album album) {
 		this.album = album;
 	}
+	
+	@Override
+	public String toString(){
+		StringBuffer print = new StringBuffer("Media[ " + mediaId + " " +mediaName+ " " +mediaLocation+ " " +mediaType + "]");
+		if(null != album){
+			print.append(album);
+		}
+		return print.toString();
+	}
 
 }

@@ -128,5 +128,17 @@ public class Album {
 	public void setComment(List<Comment> comment) {
 		this.comment = comment;
 	}
+	
+	@Override
+	public String toString(){
+		StringBuffer printout = new StringBuffer("Album[" + albumId + " " + location + " " + title + " " +name+ " " +description+ " " +date + "]");
+		if(null != customer){
+			printout.append(customer);
+		} 
+		if(null != event){
+			printout.append(event);
+		}
+		return printout.toString();
+	}
 
 }

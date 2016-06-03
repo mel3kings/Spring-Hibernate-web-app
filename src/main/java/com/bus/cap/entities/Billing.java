@@ -22,7 +22,7 @@ import javax.persistence.Table;
 public class Billing {
 	private Long billingId;
 	private Business business;
-	private Double Amount;
+	private Double amount;
 	private String paidBy;
 	private Date paidDate;
 
@@ -39,11 +39,11 @@ public class Billing {
 
 	@Column(name = "Amount")
 	public Double getAmount() {
-		return Amount;
+		return amount;
 	}
 
 	public void setAmount(Double amount) {
-		Amount = amount;
+		this.amount = amount;
 	}
 
 	@Column(name = "Paid_By", nullable = false)
@@ -72,6 +72,15 @@ public class Billing {
 
 	public void setBusiness(Business business) {
 		this.business = business;
+	}
+	
+	@Override
+	public String toString(){
+		StringBuffer print = new StringBuffer("Billing[" + billingId + " " + amount + " " + paidBy + " " + paidDate + "]" );
+		if(null != business){
+			print.append(business);
+		}
+		return print.toString();
 	}
 
 }

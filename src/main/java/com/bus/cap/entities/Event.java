@@ -129,4 +129,11 @@ public class Event {
 	public void setEventRsvp(List<EventRSVP> eventRsvp) {
 		this.eventRsvp = eventRsvp;
 	}
+	
+	@Override
+	public String toString(){
+		StringBuffer print = new StringBuffer("Event[" + eventId + " " + customerUserId+ " " +eventName+ " " +eventLocation+ " " +eventCity
+				+ " " +eventDateTime+ " " +eventHashTag + " " +eventDescription + "]");
+		return print.toString();
+	}
 }

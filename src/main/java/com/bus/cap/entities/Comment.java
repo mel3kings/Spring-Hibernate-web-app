@@ -83,4 +83,11 @@ public class Comment {
 	public void setAlbum(Album album) {
 		this.album = album;
 	}
+	
+	@Override
+	public String toString(){
+		StringBuffer print = new StringBuffer("Comment[" + commentId + " " + albumid + " " + userId + " " + comment + " " 
+				+ commentDate+ "]");
+		return print.toString();
+	}
 }

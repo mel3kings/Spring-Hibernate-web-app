@@ -3,6 +3,7 @@ package com.bus.cap.controller;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
@@ -20,6 +21,7 @@ import com.bus.cap.persistence.QueryDao;
 
 @Controller
 public class EventController {
+	private static final Logger log = Logger.getLogger(EventController.class);
 
 	@Autowired
 	QueryDao dao;
@@ -39,7 +41,7 @@ public class EventController {
 	@RequestMapping(value="/createEvent", method = RequestMethod.POST)
 	public String create(@ModelAttribute Event event, ModelMap map){
 		try {
-			System.out.println("saving event..");
+			log.debug("Saving event.. " + event);
 			dao.save(event);
 		} catch (Exception e) {
 			System.out.println("ASDAS");
@@ -62,10 +64,10 @@ public class EventController {
 	@RequestMapping(value="/event/updateEvent", method = RequestMethod.POST)
 	public String update(@ModelAttribute Event event, ModelMap map){
 		try {
-			System.out.println("updating event.. " + event.getEventId());
+			log.debug("updating event.. " + event);
 			dao.update(event);
 		} catch (Exception e) {
-			System.out.println("ASDAS");
+			log.error("error saving "+ event, e);
 			e.printStackTrace();
 			return "event/fail";
 		}

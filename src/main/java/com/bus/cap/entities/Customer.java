@@ -146,4 +146,11 @@ public class Customer {
 	public void setAlbum(List<Album> album) {
 		this.album = album;
 	}
+	
+	@Override
+	public String toString(){
+		StringBuffer print = new StringBuffer("Customer[" + userId + " " +name + " " +address+ " " +city+ " " +email+ " " +mobileNumber 
+				+ " " +telephoneNumber + " " +parent + " " +customerType+ " " +parentUserId +"]");
+		return print.toString();
+	}
 }

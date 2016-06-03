@@ -106,4 +106,13 @@ public class Admin {
 	public void setTelephoneNumber(String telephoneNumber) {
 		this.telephoneNumber = telephoneNumber;
 	}
+	
+	@Override
+	public String toString(){
+		StringBuffer printout = new StringBuffer("Admin[" + userId + " " + userName + " " + email + " " + role + " " + mobileNumber + " " + telephoneNumber + "]");
+		if(null != business){
+			printout.append(business);
+		}
+		return printout.toString();
+	}
 }

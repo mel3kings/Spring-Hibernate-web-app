@@ -105,5 +105,15 @@ public class Business {
 	public void setBilling(Billing billing) {
 		this.billing = billing;
 	}
+	
+	@Override
+	public String toString(){
+		StringBuffer print = new StringBuffer("Business [" + businessId + " " + businessName+ " " +businessAddress+ " " +businessCity
+				+ " " + description + "]");
+		if(null != billing){
+			print.append(billing);
+		}
+		return print.toString();
+	}
 
 }

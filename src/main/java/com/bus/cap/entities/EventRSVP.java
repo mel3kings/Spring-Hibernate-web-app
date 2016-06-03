@@ -104,5 +104,16 @@ public class EventRSVP {
 	public void setEvent(Event event) {
 		this.event = event;
 	}
+	
+	@Override
+	public String toString(){
+		StringBuffer print = new StringBuffer("EventRSVP[" + eventRSVPId +" " +RSVP +" " +guestName +" " +guestAddress +" " +
+				guestEmailAddress  +" " +guestMobileNumber  +" " +noOfGuest+"]");
+		if(null != event){
+			print.append(event);
+		}
+		return print.toString();
+	}
+	
 
 }
