@@ -16,12 +16,11 @@
   <div id="wrapper">
   
   <h1>User Registration</h1>
-  
   <form:form method="POST" action="submitRegister">
   <div class="col-2">
     <label>
      Name
-      <input placeholder="What is your name?" id="userName" name="userName" tabindex="1">
+      <input placeholder="What is your name?"  id="userName" name="userName" tabindex="1">
     </label>
   </div>
   <div class="col-2">
@@ -72,10 +71,12 @@
     </label>
    </div>
    <div class="col-4">
-    <label>Create with FB
-    <input placeholder="TODO" tabindex="7">
-    </label>
-   </div>
+    <label>Facebook Account</label>
+    &nbsp; &nbsp; &nbsp; &nbsp;
+    <fb:login-button scope="email,user_birthday,user_work_history" onlogin="checkLoginState();">
+    Create Account with Facebook</fb:login-button>
+    <br/>
+</div>
   
   <div class="col-submit">
     <button class="submitbtn">Submit Form</button>
@@ -88,6 +89,20 @@ var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
 elems.forEach(function(html) {
   var switchery = new Switchery(html);
 });
+
+function setFBFields() {
+  console.log('Welcome!  Fetching your information v2.... ');
+  FB.api('/me?fields=name,email,work,birthday', function(response) {
+	  var jsonResponse = JSON.stringify(response);
+	  console.log(jsonResponse); 
+	  alert("Success retrieved user data: "+ jsonResponse);  
+	});
+}
 </script>
+
+
+
+
+
 </body>
 </html>

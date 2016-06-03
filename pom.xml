@@ -12,6 +12,8 @@
 		<spring.version>3.2.13.RELEASE</spring.version>
 		<jstl.version>1.2</jstl.version>
 		<spring.security.version>3.2.3.RELEASE</spring.security.version>
+		<deploy.directory>C:\Tools\apache-tomcat-8.0.33\webapps</deploy.directory>
+		<clean.directory>C:\Tools\apache-tomcat-8.0.33\webapps\capture</clean.directory>
 	</properties>
 
 	<repositories>
@@ -170,6 +172,25 @@
 
 	<build>
 		<plugins>
+		 <plugin>
+		    <artifactId>maven-antrun-plugin</artifactId>
+		    <version>1.8</version>
+		    <executions>
+		        <execution>
+		            <phase>package</phase>
+		            <configuration>
+		                <target>
+							  <delete dir="${clean.directory}" />
+		                    <echo>DELETING ${clean.directory}</echo>
+		                </target>
+		                
+		            </configuration>
+		            <goals>
+		                <goal>run</goal>
+		            </goals>
+		        </execution>
+		    </executions>
+		</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -198,10 +219,12 @@
 				<version>2.6</version>
 				<configuration>
 					<warName>capture</warName>
-					<outputDirectory>C:\apache-tomcat-8.0.32\webapps</outputDirectory>
+					<outputDirectory>${deploy.directory}</outputDirectory>
 					<!-- <outputDirectory>/Users/melchortatlonghari/Documents/java/apache-tomcat-8.0.35/webapps</outputDirectory> -->
 				</configuration>
 			</plugin>
+	
 		</plugins>
+		
 	</build>
 </project>
