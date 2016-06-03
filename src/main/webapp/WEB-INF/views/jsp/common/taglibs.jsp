@@ -12,9 +12,6 @@
       xfbml      : true,
       version    : 'v2.6'
     });
-	  FB.getLoginStatus(function(response) {
-	    statusChangeCallback(response);
-	  });
   };
 
   (function(d, s, id){
@@ -49,9 +46,18 @@
 	 function logoutOutUser(){
 		FB.logout();
 	}
-
-	
-
-	 
 </script>
     
+ <head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html">
+  <title>Event Page</title>
+  <link rel="shortcut icon" href="http://static.tmimgcdn.com/img/favicon.ico">
+  <link rel="icon" href="http://static.tmimgcdn.com/img/favicon.ico">
+  <script type="text/javascript" src="/capture/resources/common/js/switchery.min.js"></script>		
+  <spring:url value="/resources/common/css/styles.css" var="styleCss" />
+  <spring:url value="/resources/common/css/switchery.min.css" var="switcheryCss" />
+ <link href="${styleCss}" rel="stylesheet" />
+ <link href="${switcheryCss}" rel="stylesheet" />
+ 
+</head>

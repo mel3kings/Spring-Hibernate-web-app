@@ -1,17 +1,4 @@
 <%@ include file="../common/taglibs.jsp"%>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="Content-Type" content="text/html">
-  <title>Registration Page</title>
-  <link rel="shortcut icon" href="http://static.tmimgcdn.com/img/favicon.ico">
-  <link rel="icon" href="http://static.tmimgcdn.com/img/favicon.ico">
-  <script type="text/javascript" src="/capture/resources/common/js/switchery.min.js"></script>		
-  <spring:url value="/resources/common/css/styles.css" var="styleCss" />
-  <spring:url value="/resources/common/css/switchery.min.css" var="switcheryCss" />
- <link href="${styleCss}" rel="stylesheet" />
- <link href="${switcheryCss}" rel="stylesheet" />
- 
-</head>
 <body>
   <div id="wrapper">
   
@@ -85,11 +72,6 @@
   </form:form>
   </div>
 <script type="text/javascript">
-var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
-elems.forEach(function(html) {
-  var switchery = new Switchery(html);
-});
-
 function setFBFields() {
   console.log('Welcome!  Fetching your information v2.... ');
   FB.api('/me?fields=name,email,work,birthday', function(response) {
@@ -99,10 +81,6 @@ function setFBFields() {
 	});
 }
 </script>
-
-
-
-
-
+<%@ include file="../common/endtaglibs.jsp"%>
 </body>
 </html>

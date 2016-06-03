@@ -9,6 +9,7 @@ com\bus\cap\entities\Billing.class
 com\bus\cap\entities\Comment.class
 com\bus\cap\entities\Media.class
 com\bus\cap\constants\Constant.class
+com\bus\cap\controller\AlbumController.class
 com\bus\cap\entities\EventRSVP.class
 com\bus\cap\controller\LoginController.class
 com\bus\cap\entities\Customer.class

@@ -21,13 +21,13 @@ public class JavaEightSyntaxTest {
 	@Before
 	public void initializeTestData() {
 		Business b = new Business();
-		b.setBusinessName("TEST A");
+		b.setBusinessName("La Salle Business School");
 		Business b2 = new Business();
-		b2.setBusinessName("asdasd B");
+		b2.setBusinessName("Cambridge University");
 		Business b3 = new Business();
-		b3.setBusinessName("AAA");
+		b3.setBusinessName("Scumbusiness");
 		Business b4 = new Business();
-		b4.setBusinessName("AAAASDASDASDASDASDASDAD");
+		b4.setBusinessName("Going Out of Business");
 		listOfBusiness.add(b);
 		listOfBusiness.add(b2);
 		listOfBusiness.add(b3);

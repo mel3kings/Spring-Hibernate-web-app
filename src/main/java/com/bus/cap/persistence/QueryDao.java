@@ -11,7 +11,9 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.bus.cap.entities.Album;
 import com.bus.cap.entities.Business;
+import com.bus.cap.entities.Media;
 import com.bus.cap.util.EntityFinder;
 
 @Repository
@@ -29,12 +31,19 @@ public class QueryDao {
 	@Transactional(propagation=Propagation.REQUIRES_NEW)
 	public List<Object> query (String identifier, String column,Object objectType) throws SQLException {
 		Session session = factory.createSession();
-		ArrayList<Object> o = null;
+		ArrayList<Object> result = null;
+		Query query = null;
 		if (objectType instanceof Business) {
-			Query q = session.createQuery("from Business where " + column + " = '" + identifier + "'");
-			o = (ArrayList<Object>) q.list();
+			query = session.createQuery("from Business where " + column + " = '" + identifier + "'");
+			result = (ArrayList<Object>) query.list();
+		} else if(objectType instanceof Album){
+			query = session.createQuery("from Album where " + column + " = '" + identifier + "'");
+			result= (ArrayList<Object>) query.list();
+		} else if(objectType instanceof Media){
+			query = session.createQuery("from Media where " + column + " ='" + identifier + "'");
+			result = (ArrayList<Object>)query.list();
 		}
-		return o;
+		return result;
 	}
 
 	public void delete(Object o) throws SQLException {
@@ -54,5 +63,13 @@ public class QueryDao {
 		Session session = factory.createSession();
 		System.out.println(cls.getName() + " id: " + id);
 		return session.get(cls, id);
+	}
+	
+	@Transactional(propagation=Propagation.REQUIRES_NEW)
+	public Album getAlbum(Long albumId){
+		Session session = factory.createSession();
+		Album album = (Album)session.get(Album.class,albumId);
+		album.getMedia().size();
+		return album;
 	}
 }
