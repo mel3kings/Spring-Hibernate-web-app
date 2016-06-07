@@ -19,3 +19,4 @@ com\bus\cap\controller\AlbumController.class
 com\bus\cap\entities\Customer.class
 com\bus\cap\persistence\QueryDao.class
 com\bus\cap\util\CustomAuthentication.class
+com\bus\cap\controller\BusinessController.class

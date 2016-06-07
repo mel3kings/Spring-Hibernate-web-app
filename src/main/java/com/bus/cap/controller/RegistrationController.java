@@ -24,7 +24,7 @@ public class RegistrationController {
 	@RequestMapping(value="/register", method= RequestMethod.GET)
 	public String registerPage(){
 		log.info("Redirecting to registration page");
-		return "register/registrationPage";
+		return "register/create";
 	}
 	
 	@RequestMapping(value="/submitRegister", method = RequestMethod.POST)
@@ -37,7 +37,7 @@ public class RegistrationController {
 			return "register/registrationFail";
 		}
 		map.addAttribute("name", admin.getUserName());
-		return "register/registrationSuccess";
+		return "register/successs";
 	}
 	
 }

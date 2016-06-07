@@ -44,8 +44,7 @@ public class EventController {
 			log.debug("Saving event.. " + event);
 			dao.save(event);
 		} catch (Exception e) {
-			System.out.println("ASDAS");
-			e.printStackTrace();
+			log.error("Error creating event " + event,e);
 			return "event/fail";
 		}
 		map.addAttribute("name", event.getEventName());
@@ -68,7 +67,6 @@ public class EventController {
 			dao.update(event);
 		} catch (Exception e) {
 			log.error("error saving "+ event, e);
-			e.printStackTrace();
 			return "event/fail";
 		}
 		map.addAttribute("name", event.getEventName());

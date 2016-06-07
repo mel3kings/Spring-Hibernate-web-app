@@ -5,10 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.hibernate.Hibernate;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.proxy.HibernateProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
@@ -29,7 +27,7 @@ public class QueryDao {
 	@Transactional(propagation=Propagation.REQUIRED)
 	public void save(Object o) throws SQLException {
 		Session session = factory.createSession();
-		session.save(o);
+		session.saveOrUpdate(o);
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -51,9 +49,16 @@ public class QueryDao {
 		return result;
 	}
 	
+	@Transactional(propagation=Propagation.REQUIRED)
 	public void delete(Object o) throws SQLException {
 		Session session = factory.createSession();
 		session.delete(o);
+	}
+	@Transactional(propagation=Propagation.REQUIRED)
+	public void delete(Long id,Class<?> cls) throws SQLException {
+		Session session = factory.createSession();
+		Object load = get(id, cls);
+		session.delete(load);
 	}
 	
 	@Transactional(propagation=Propagation.REQUIRED)

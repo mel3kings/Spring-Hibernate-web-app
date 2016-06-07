@@ -8,8 +8,14 @@
 		<input type="hidden" value="${album.albumId}" name="albumId"
 			id="albumId" />
 			
+			
 			<c:forEach var="mediaList" items="${mediaList}">
-				<li>${mediaList.mediaName}</li>
+			<spring:url value="${mediaList.mediaLocation}" var="videoLocation" />
+  
+			<video>
+				<source src='${videoLocation}' type='video/${mediaList.mediaType}'>
+			</video>
+				<li>${mediaList.mediaName} + ${videoLocation}</li>
 			</c:forEach>
 	</div>
 <%@ include file="../common/endtaglibs.jsp"%>
