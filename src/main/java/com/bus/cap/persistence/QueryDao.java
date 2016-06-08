@@ -34,7 +34,6 @@ public class QueryDao {
 	@Transactional(propagation=Propagation.REQUIRED)
 	public List<Object> query (String identifier, String column,Object objectType) throws SQLException {
 		Session session = factory.createSession();
-		log.info("fetching : " + identifier + " " + column + " " + objectType);
 		ArrayList<Object> result = null;
 		Query query = null;
 		if (objectType instanceof Business) {
@@ -62,11 +61,8 @@ public class QueryDao {
 		session.delete(load);
 	}
 	
-	@Transactional(propagation=Propagation.REQUIRED)
-	public void delete(String id,Class<?> cls) throws SQLException {
-		Session session = factory.createSession();
-		Object load = get(id, cls);
-		session.delete(load);
+	public void delete(String id, Class<?> cls) throws SQLException {
+		delete(Long.parseLong(id), cls);
 	}
 	
 	@Transactional(propagation=Propagation.REQUIRED)
@@ -83,11 +79,7 @@ public class QueryDao {
 		return session.get(cls, id);
 	}
 	
-	@Transactional(propagation=Propagation.REQUIRED)
 	public Object get(String id, Class<?> cls) {
-		Session session = factory.createSession();
-		System.out.println(cls.getName() + " id: " + id);
-		return session.get(cls, id);
+		return get(Long.parseLong(id), cls);
 	}
-
 }
