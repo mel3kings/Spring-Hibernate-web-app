@@ -73,6 +73,7 @@
 <script src="/capture/resources/common/js/util.js"></script>
 <!--[if lte IE 8]><script src="/capture/resources/common/js/ie/respond.min.js"></script><![endif]-->
 <script src="/capture/resources/common/js/main.js"></script>
+<script src="/capture/resources/common/js/homemain.js"></script>
 </head>
 
 <div id="page-wrapper">

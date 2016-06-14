@@ -12,7 +12,7 @@
 		
 		<form-login 
 		    login-page="/login" 
-		    default-target-url="/index" 
+		    default-target-url="/home/index" 
 			authentication-failure-url="/login?error" 
 			username-parameter="username"
 			password-parameter="password" />
