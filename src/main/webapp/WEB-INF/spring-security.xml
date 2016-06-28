@@ -6,13 +6,12 @@
 	http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 
 	<http auto-config="true">
-		<intercept-url pattern="/index**" access="ROLE_USER" />
-		<intercept-url pattern="/login**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
-		<intercept-url pattern="/template1**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<intercept-url pattern="/logsdadin**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<intercept-url pattern="/templdsadate1**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		
 		<form-login 
-		    login-page="/login" 
-		    default-target-url="/home/index" 
+		    login-page="/login2" 
+		    default-target-url="/home2/index2" 
 			authentication-failure-url="/login?error" 
 			username-parameter="username"
 			password-parameter="password" />
